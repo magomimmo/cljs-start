@@ -1,7 +1,14 @@
-# Start from here
+# {{name}}
+
+A ClojureScript library designed to ... well, that part is up to you.
+
+## Usage
+
+FIXME
 
 ## License
 
-Copyright (C) 2013 Giacomo (Mimmo) Cosenza aka Magomimmo
+Copyright © {{year}} FIXME
 
-Distributed under the Eclipse Public License, the same as Clojure.
+Distributed under the Eclipse Public License either version 1.0 or (at
+your option) any later version.

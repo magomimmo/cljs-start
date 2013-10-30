@@ -13,6 +13,7 @@
     (->files data
              [".gitignore" (render "gitignore" data)]
              ["README.md" (render "README.md" data)]
+             ["doc/intro.md" (render "intro.md" data)]
              ["LICENSE" (render "LICENSE" data)]
              ["project.clj" (render "project.clj" data)]
              ["profiles.clj" (render "profiles.clj" data)]
