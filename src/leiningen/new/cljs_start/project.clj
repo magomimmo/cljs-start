@@ -4,7 +4,7 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"
             :distribution :repo}
   ;; required by cljsbuild  plugin
-  :min-lein-version "2.1.2"
+  :min-lein-version "2.2.0"
 
   ;; we need to add src/cljs too, because cljsbuild does not add its
   ;; source-paths to the project source-paths

@@ -13,9 +13,12 @@
 ;;;
 ;;; *******************************************************************
 
-{:dev { ;; add out dir to the dirs to be cleaned by the lein clean
+{:dev { ;; add the out dir to the dirs to be cleaned by the lein clean
         ;; command
        :clean-targets ["out"]
+       ;; add the test/clj and test/cljs dir to the leiningen
+       ;; :test-paths option
+       :test-paths ["test/clj" "test/cljs"]
        ;; we need to add dev-resources/tools/repl, because cljsbuild
        ;; does not add its own source-paths to the project
        ;; source-paths.
@@ -38,11 +41,13 @@
        {;; here we configure one build for each Google Closure
         ;; Compiler optmization. We do not include the :none
         ;; optimization.
-        :builds {;; the whitespace optimization build
+        :builds {;; the whitespace optimization build. This is the
+                 ;; only build to  be included in the index.html page
+                 ;; used for the brepl connection
                  :whitespace
-                 {:source-paths ["src/cljs" "test/cljs"]
+                 {:source-paths ["src/cljs" "test/cljs" "dev-resources/tools/repl"]
                   :compiler
-                  {:output-to "dev-resources/public/js/whitespace.js"
+                  {:output-to "dev-resources/public/js/{{name}}.js"
                    :optimizations :whitespace
                    :pretty-print true}}
                  ;; the simple optimization build
@@ -62,30 +67,18 @@
 
         ;; here we configure the test commands for running the
         ;; test. To be able to use this commands you have to install
-        ;; both phantomjs and slimerjs on you development
-        ;; machine. Phantomjs is the webkit-based headless browser,
-        ;; which slimerjs is the gecko-based headless browser.
+        ;; phantomjs on you development machine. Phantomjs is the most
+        ;; used webkit-based headless browser for unit testing JS code
         :test-commands {;; test against phantomjs
                         ;; test whitespace build
                         "phantomjs-ws"
-                        ["phantomjs" :runner "dev-resources/public/js/whitespace.js"]
+                        ["phantomjs" :runner "dev-resources/public/js/{{name}}.js"]
                         ;; test simple build against panthomjs
                         "phantomjs-simple"
                         ["phantomjs" :runner "dev-resources/public/js/simple.js"]
                         ;; test advanced build against panthomjs
                         "phantomjs-advanced"
-                        ["phantomjs" :runner "dev-resources/public/js/advanced.js"]
-
-                        ;; test against slimerjs
-                        ;; test whitespace build
-                        "slimerjs-ws"
-                        ["slimerjs" :runner "dev-resources/public/js/whitespace.js"]
-                        ;; test simple build
-                        "slimerjs-simple"
-                        ["slimerjs" :runner "dev-resources/public/js/simple.js"]
-                        ;; test advanced build
-                        "slimerjs-advanced"
-                        ["slimerjs" :runner "dev-resources/public/js/advanced.js"]}}
+                        ["phantomjs" :runner "dev-resources/public/js/advanced.js"]}}
 
        ;; He we added the piggieback middleware to start a brepl
        ;; session from an nrepl session
