@@ -39,13 +39,17 @@
              ;; include here any cljs source which is only used during
              ;; develpment or testing
              :source-paths ["src/cljs"]
-             ;; needed to include the sources in the packaged jar
-             :jar true
+             ;; the :jar true option is not needed to include the CLJS
+             ;; sources in the packaged jar. This is because we added
+             ;; the CLJS source codebase to the Leiningen
+             ;; :source-paths
+             ;:jar true
              ;; Google Closure Compilation Options
              :compiler
              {;; the file pathname emitted by the Google Closure
               :output-to "dev-resources/public/js/deploy.js"
-              ;; Google Closure Optimization option
-              :optimizations :whitespace
-              ;; prettify the emitted js file
-              :pretty-print true}}}})
+              ;; Google Closure Optimization option set to :none to
+              ;; speed up this useless compilation
+              :optimizations :none
+              ;; no need to prettify the emitted js file
+              :pretty-print none}}}})
