@@ -3,7 +3,7 @@
 A [lein template][1] for creating [ClojureScript][2] lib with
 batteries included.
 
-> NOTE: `clj-start` has just been created. Use it at your own risk.
+> NOTE: `cljs-start` has just been created. Use it at your own risk.
 
 ## Introduction
 
@@ -22,8 +22,8 @@ path to start hacking with CLJS for building state of the art libs.
 
 ## Requirement installation
 
-The only `cljs-start` installation requirements are
-[Java][4] and [Leiningen][5], and [PhantomJS][6]
+The only `cljs-start` installation requirements are [Java][4],
+[Leiningen][5], and [PhantomJS][6]
 
 #### Installing Java
 
@@ -58,14 +58,14 @@ You're now ready to start creating the next wonderful CLJS lib with
 
 ## Quick start guide
 
-1. Create the project
+* Create the project
 
 ```bash
 lein new cljs-start wonderful-lib
 Generating fresh 'lein new' cljs-start project.
 ```
 
-2. Compile the project
+* Compile the project
 
 ```bash
 ce wonderful-project
@@ -92,9 +92,9 @@ Compiling "dev-resources/public/js/deploy.js" from ["src/cljs"]...
 Successfully compiled "dev-resources/public/js/deploy.js" in 2.616146 seconds.
 ```
 
-Don't worry about the received warnings. The are expected. 
+Don't worry about the received warnings. They are expected. 
 
-3. Run the tests
+* Run the tests
 
 ```bash
 lein test
@@ -127,7 +127,7 @@ Ran 1 tests containing 2 assertions.
 {:test 1, :pass 2, :fail 0, :error 0, :type :summary}
 ```
 
-4. Run the CLJ nREPL
+* Run the CLJ nREPL
 
 ```clj
 lein repl
@@ -145,7 +145,7 @@ Clojure 1.5.1
 user=>
 ```
 
-5. Run the HTTP server
+* Run the HTTP server
 
 ```clj
 user=> (do (use 'ring.server) (run))
@@ -154,7 +154,7 @@ user=> (do (use 'ring.server) (run))
 #<Server org.eclipse.jetty.server.Server@2128d26f>
 user=>
 
-6. Run the bREPL from the nREPL
+* Run the bREPL from the nREPL
 
 ```clj
 user=> (browser-repl)
@@ -163,7 +163,7 @@ nil
 cljs.user=>
 ```
 
-7. Connect the bREPL with the browser
+* Connect the bREPL with the browser
 
 Just visit the [localhost:3000][12], wait a moment and go back to the
 bREPL to interact with the browser.
@@ -173,7 +173,7 @@ user=> (js/alert "Hello, ClojureScript!")
 nil
 ```
 
-8. Run the included unit tests and exit the bREPL
+* Run the included unit tests from the bREPL and exit the bREPL
 
 ```clj
 cljs.user=> (cemerick.cljs.test/run-all-tests)
@@ -188,7 +188,7 @@ cljs.user=> :cljs/quit
 user=>
 ```
 
-9. Stop the HTTP server and restart the server
+* Stop the HTTP server and restart the server
 
 ```clj
 user=> (.stop server)
@@ -200,14 +200,14 @@ nil
 user=>
 ```
 
-10. Exit
+* Exit
 
 ```clj
 user=> exit
 Bye for now!
 ```
 
-11. Package the jar and see its content
+* Package the jar and see its content
 
 ```bash
 lein jar
@@ -242,3 +242,4 @@ under the Eclipse Public License, the same as Clojure.
 [9]: https://github.com/technomancy/leiningen#windows
 [10]: http://www.webkit.org/
 [11]: http://phantomjs.org/download.html
+[12]: http://localhost:3000/
