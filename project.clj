@@ -1,4 +1,4 @@
-(defproject cljs-start/lein-template "0.0.1"
+(defproject cljs-start/lein-template "0.0.1-SNAPSHOT"
   :description "FIXME: write description"
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
