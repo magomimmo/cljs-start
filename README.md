@@ -153,6 +153,7 @@ user=> (do (use 'ring.server) (run))
 2013-10-31 21:34:32.321:INFO:oejs.AbstractConnector:Started SelectChannelConnector@0.0.0.0:3000
 #<Server org.eclipse.jetty.server.Server@2128d26f>
 user=>
+```
 
 ### Run the bREPL from the nREPL
 
