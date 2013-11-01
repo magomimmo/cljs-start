@@ -58,14 +58,14 @@ You're now ready to start creating the next wonderful CLJS lib with
 
 ## Quick start guide
 
-* Create the project
+### Create the project
 
 ```bash
 lein new cljs-start wonderful-lib
 Generating fresh 'lein new' cljs-start project.
 ```
 
-* Compile the project
+### Compile the project
 
 ```bash
 ce wonderful-project
@@ -94,7 +94,7 @@ Successfully compiled "dev-resources/public/js/deploy.js" in 2.616146 seconds.
 
 Don't worry about the received warnings. They are expected. 
 
-* Run the tests
+### Run the tests
 
 ```bash
 lein test
@@ -127,7 +127,7 @@ Ran 1 tests containing 2 assertions.
 {:test 1, :pass 2, :fail 0, :error 0, :type :summary}
 ```
 
-* Run the CLJ nREPL
+### Run the CLJ nREPL
 
 ```clj
 lein repl
@@ -145,7 +145,7 @@ Clojure 1.5.1
 user=>
 ```
 
-* Run the HTTP server
+### Run the HTTP server
 
 ```clj
 user=> (do (use 'ring.server) (run))
@@ -154,7 +154,9 @@ user=> (do (use 'ring.server) (run))
 #<Server org.eclipse.jetty.server.Server@2128d26f>
 user=>
 
-* Run the bREPL from the nREPL
+### Run the bREPL from the nREPL
+
+From the active REPL just evaluate `(browser-repl)` expression.„
 
 ```clj
 user=> (browser-repl)
@@ -163,17 +165,18 @@ nil
 cljs.user=>
 ```
 
-* Connect the bREPL with the browser
+### Connect the bREPL with the browser
 
-Just visit the [localhost:3000][12], wait a moment and go back to the
-bREPL to interact with the browser.
+After having run the HTTP server and the bREPL, Just visit the
+[localhost:3000][12], wait a moment and go back to the bREPL to
+interact with the browser.
 
 ```clj
-user=> (js/alert "Hello, ClojureScript!")
+cljs.user=> (js/alert "Hello, ClojureScript!")
 nil
 ```
 
-* Run the included unit tests from the bREPL and exit the bREPL
+### Run the included unit tests from the bREPL and exit the bREPL
 
 ```clj
 cljs.user=> (cemerick.cljs.test/run-all-tests)
@@ -188,7 +191,7 @@ cljs.user=> :cljs/quit
 user=>
 ```
 
-* Stop the HTTP server and restart the server
+### Stop the HTTP server and restart the server
 
 ```clj
 user=> (.stop server)
@@ -200,14 +203,14 @@ nil
 user=>
 ```
 
-* Exit
+### Exit
 
 ```clj
 user=> exit
 Bye for now!
 ```
 
-* Package the jar and see its content
+### Package the jar and see its content
 
 ```bash
 lein jar
@@ -225,6 +228,8 @@ jar tvf target/wonderful-lib-0.0.1-SNAPSHOT.jar
    174 Thu Oct 31 21:24:32 CET 2013 wonderful_lib/core.cljs
 Giacomo-Cosenzas-iMac:wonderful-lib mimmo$
 ```
+
+### Have fun
 
 # License
 

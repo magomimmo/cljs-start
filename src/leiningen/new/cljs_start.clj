@@ -5,7 +5,7 @@
 (def render (renderer "cljs-start"))
 
 (defn cljs-start
-  "FIXME: write documentation"
+  "Create a Leiningen project for developing ClojureScript Libs"
   [name]
   (let [data {:name name
               :sanitized (name-to-path name)}]
