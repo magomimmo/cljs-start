@@ -20,5 +20,6 @@
              ["dev-resources/public/index.html" (render "index.html" data)]
              ["dev-resources/tools/http/ring/server.clj" (render "server.clj")]
              ["dev-resources/tools/repl/brepl/connect.cljs" (render "connect.cljs")]
+             ["src/clj/{{sanitized}}/macros.clj" (render "macros.clj")]
              ["src/cljs/{{sanitized}}/core.cljs" (render "core.cljs" data)]
              ["test/cljs/{{sanitized}}/core_test.cljs" (render "core_test.cljs" data)])))
