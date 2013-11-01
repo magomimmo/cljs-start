@@ -68,7 +68,7 @@ Generating fresh 'lein new' cljs-start project.
 ### Compile the project
 
 ```bash
-cd wonderful-project
+cd wonderful-lib
 lein compile
 Compiling ClojureScript.
 Retrieving ring/ring/1.2.1/ring-1.2.1.pom from clojars
