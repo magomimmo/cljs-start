@@ -26,7 +26,7 @@
        ;; does not add its own source-paths to the project
        ;; source-paths.
        :source-paths ["dev-resources/tools/http" "dev-resources/tools/repl"]
-       ;; Add the dev-resources to the project classpath.
+       ;; add the dev-resources to the project classpath.
        :resources-paths ["dev-resources"]
        ;; to instrument the project with the brepl facilities
        ;; (i.e. the ring/compojure server and the piggieback brepl
@@ -41,26 +41,25 @@
 
        ;; cljsbuild settings for development and test phases
        :cljsbuild
-       {;; here we configure one build for each Google Closure
-        ;; Compiler optmization. We do not include the :none
-        ;; optimization.
-        :builds {;; the whitespace optimization build. This is the
-                 ;; only build to  be included in the index.html page
-                 ;; used for the brepl connection
+       {;; here we configure one build for each compiler optmizations
+        ;; options. We do not include the :none optimization.
+        :builds {;; the :whitespace optimizations build. This is the
+                 ;; only build included in the index.html page used
+                 ;; for the brepl connection
                  :whitespace
                  {:source-paths ["src/cljs" "test/cljs" "dev-resources/tools/repl"]
                   :compiler
                   {:output-to "dev-resources/public/js/{{name}}.js"
                    :optimizations :whitespace
                    :pretty-print true}}
-                 ;; the simple optimization build
+                 ;; the :simple optimizations build
                  :simple
                  {:source-paths ["src/cljs" "test/cljs"]
                   :compiler
                   {:output-to "dev-resources/public/js/simple.js"
                    :optimizations :simple
                    :pretty-print false}}
-                 ;; the advanced optimization build
+                 ;; the :advanced optimizations build
                  :advanced
                  {:source-paths ["src/cljs" "test/cljs"]
                   :compiler
@@ -72,14 +71,13 @@
         ;; test. To be able to use this commands you have to install
         ;; phantomjs on you development machine. Phantomjs is the most
         ;; used webkit-based headless browser for unit testing JS code
-        :test-commands {;; test against phantomjs
-                        ;; test whitespace build
+        :test-commands {;; test :whitespace build against phantomjs
                         "phantomjs-ws"
                         ["phantomjs" :runner "dev-resources/public/js/{{name}}.js"]
-                        ;; test simple build against panthomjs
+                        ;; test :simple build against phantomjs
                         "phantomjs-simple"
                         ["phantomjs" :runner "dev-resources/public/js/simple.js"]
-                        ;; test advanced build against panthomjs
+                        ;; test advanced build against phantomjs
                         "phantomjs-advanced"
                         ["phantomjs" :runner "dev-resources/public/js/advanced.js"]}}
 

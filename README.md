@@ -1,6 +1,6 @@
 # cljs-start
 
-A [lein template][1] for creating [ClojureScript][2] lib with
+A [lein template][1] for creating [ClojureScript][2] libs with
 batteries included.
 
 > NOTE: `cljs-start` has just been created. Use it at your own risk.
@@ -20,12 +20,14 @@ a productive programming environment (e.g. [CoffeScript][3]).
 `cljs-start` intends to offer to the serious newcomers a more direct
 path to start hacking with CLJS for building state of the art libs.
 
-## Requirement installation
+## Requirements
 
-The only `cljs-start` installation requirements are [Java][4],
-[Leiningen][5], and [PhantomJS][6]
+The only `cljs-start` requirements are [Java][4], [Leiningen][5], and
+[PhantomJS][6]
 
-#### Installing Java
+## Installation
+
+### Installing Java
 
 Depending on your machine you could have Java already installed on
 it. CLJS requires a Java Development Kit (JDK) version 6.0 or
@@ -33,7 +35,7 @@ later. If you need to install the JDK or to upgrade it, just follow
 the instruction for your operating system available on the
 [main java website][7].
 
-#### Installing Leiningen
+### Installing Leiningen
 
 After having installed Java you need to install Leiningen. The
 available [installation guide][7] is very easy to be followed:
@@ -45,7 +47,7 @@ available [installation guide][7] is very easy to be followed:
 
 If you work on Windows, follow [this instruction][9]
 
-#### Intalling PhantomJS
+### Installing PhantomJS
 
 [Phantomjs][6] is a headless-browser based on [WebKit][10] used mainly
 for JS testing support.
@@ -157,7 +159,7 @@ user=>
 
 ### Run the bREPL from the nREPL
 
-From the active REPL just evaluate `(browser-repl)` expression.„
+From the active REPL just evaluate `(browser-repl)` expression.
 
 ```clj
 user=> (browser-repl)
@@ -217,6 +219,7 @@ Bye for now!
 lein jar
 Compiling ClojureScript.
 Created /Users/mimmo/tmp/wonderful-lib/target/wonderful-lib-0.0.1-SNAPSHOT.jar
+
 jar tvf target/wonderful-lib-0.0.1-SNAPSHOT.jar
     92 Thu Oct 31 22:24:36 CET 2013 META-INF/MANIFEST.MF
   4461 Thu Oct 31 22:24:36 CET 2013 META-INF/maven/wonderful-lib/wonderful-lib/pom.xml
