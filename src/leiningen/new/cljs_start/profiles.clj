@@ -13,11 +13,11 @@
 ;;;
 ;;; *******************************************************************
 
-{:dev { ;; add the out dir to the dirs to be cleaned by the lein clean
+{:dev { ;; Add the out dir to the dirs to be cleaned by the lein clean
         ;; command. Add here any pathname containing generated files
         ;; to be cleaned by the lein clean command.
        :clean-targets ["out"]
-       ;; add the test/clj and test/cljs dir to the leiningen
+       ;; Add the test/clj and test/cljs dir to the leiningen
        ;; :test-paths option. It has to contain also the superset of
        ;; all the pathnames used for CLJS purpose. See below the
        ;; comment on Leiningen :source-paths.
@@ -26,9 +26,9 @@
        ;; does not add its own source-paths to the project
        ;; source-paths.
        :source-paths ["dev-resources/tools/http" "dev-resources/tools/repl"]
-       ;; add the dev-resources to the project classpath.
+       ;; Add the dev-resources to the project classpath.
        :resources-paths ["dev-resources"]
-       ;; to instrument the project with the brepl facilities
+       ;; To instrument the project with the brepl facilities
        ;; (i.e. the ring/compojure server and the piggieback brepl
        ;; built on top of a standard nrepl)
        :dependencies [[com.cemerick/piggieback "0.1.0"]
@@ -39,11 +39,11 @@
        ;; clojure.test standard lib
        :plugins [[com.cemerick/clojurescript.test "0.1.0"]]
 
-       ;; cljsbuild settings for development and test phases
+       ;; Cljsbuild settings for development and test phases
        :cljsbuild
-       {;; here we configure one build for each compiler optmizations
+       {;; Here we configure one build for each compiler optmizations
         ;; options. We do not include the :none optimization.
-        :builds {;; the :whitespace optimizations build. This is the
+        :builds {;; The :whitespace optimizations build. This is the
                  ;; only build included in the index.html page used
                  ;; for the brepl connection
                  :whitespace
@@ -52,14 +52,14 @@
                   {:output-to "dev-resources/public/js/{{name}}.js"
                    :optimizations :whitespace
                    :pretty-print true}}
-                 ;; the :simple optimizations build
+                 ;; The :simple optimizations build
                  :simple
                  {:source-paths ["src/cljs" "test/cljs"]
                   :compiler
                   {:output-to "dev-resources/public/js/simple.js"
                    :optimizations :simple
                    :pretty-print false}}
-                 ;; the :advanced optimizations build
+                 ;; The :advanced optimizations build
                  :advanced
                  {:source-paths ["src/cljs" "test/cljs"]
                   :compiler
