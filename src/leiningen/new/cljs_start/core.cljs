@@ -1,9 +1,11 @@
-;;; ClojureScript's macros are written in Clojure, and are referenced
-;;; via the :require-macros keyword in namespace declarations.
-;;; The :as prefix selector is required in :require-macros. 
+;;; If this namespace requires macros, remember that ClojureScript's
+;;; macros are written in Clojure and have to be referenced via the
+;;; :require-macros directive where the :as keyword is required. Even
+;;; if you can add files containing macros and compile-time only
+;;; functions in the :source-paths setting of the :builds, it is
+;;; strongly suggested to add them to the leiningen :source-paths.
+(ns {{name}}.core)
 
-(ns {{name}}.core
-    (:require-macros [{{name}}.macros :as lm]))
 (defn foo [greeting]
   (if greeting 
     (str greeting "ClojureScript!")
@@ -11,4 +13,5 @@
 
 (.write js/document (foo "Welcome to "))
 
-(. js/console (log "I'm a " (ls/by-id "#test")))
+
+
