@@ -31,13 +31,13 @@
        ;; To instrument the project with the brepl facilities
        ;; (i.e. the ring/compojure server and the piggieback brepl
        ;; built on top of a standard nrepl)
-       :dependencies [[com.cemerick/piggieback "0.1.0"]
+       :dependencies [[com.cemerick/piggieback "0.1.2"]
                       [ring "1.2.1"]
                       [compojure "1.1.6"]]
 
        ;; The lib for cljs unit testing which is a maximal port of
        ;; clojure.test standard lib
-       :plugins [[com.cemerick/clojurescript.test "0.1.0"]]
+       :plugins [[com.cemerick/clojurescript.test "0.2.0"]]
 
        ;; Cljsbuild settings for development and test phases
        :cljsbuild
