@@ -29,15 +29,17 @@
        ;; Add the dev-resources to the project classpath.
        :resources-paths ["dev-resources"]
        ;; To instrument the project with the brepl facilities
-       ;; (i.e. the ring/compojure server and the piggieback brepl
-       ;; built on top of a standard nrepl)
-       :dependencies [[com.cemerick/piggieback "0.1.2"]
-                      [ring "1.2.1"]
-                      [compojure "1.1.6"]]
+       ;; (i.e. the ring/compojure/enlive libs) and the austin plugin
+       ;; (cf. see below)
+       :dependencies [[ring "1.2.1"]
+                      [compojure "1.1.6"]
+                      [enlive "1.1.4"]]
 
        ;; The lib for cljs unit testing which is a maximal port of
-       ;; clojure.test standard lib
-       :plugins [[com.cemerick/clojurescript.test "0.2.0"]]
+       ;; clojure.test standard lib; 
+       ;; The lib for instrumenting the brepl
+       :plugins [[com.cemerick/clojurescript.test "0.2.0"]
+                 [com.cemerick/austin "0.1.3"]]
 
        ;; Cljsbuild settings for development and test phases
        :cljsbuild
@@ -81,15 +83,5 @@
                         "phantomjs-advanced"
                         ["phantomjs" :runner "dev-resources/public/js/advanced.js"]}}
 
-       ;; The piggieback middleware to start a brepl session from an
-       ;; nrepl session
-       :repl-options {:nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}
-
-       ;; A little bit of automation to quickly run the brepl session
-       ;; from a nrepl session by just evaluating the (browser-repl)
-       ;; expression.
-       :injections [(require '[cljs.repl.browser :as brepl]
-                             '[cemerick.piggieback :as pb])
-                    (defn browser-repl []
-                      (pb/cljs-repl :repl-env
-                                    (brepl/repl-env :port 9000)))]}}
+       ;; to set the ring.server as the initial namespace at the repl
+       :repl-options {:init-ns ring.server}}}
