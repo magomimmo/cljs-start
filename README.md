@@ -20,6 +20,10 @@ a productive programming environment (e.g. [CoffeScript][3]).
 `cljs-start` intends to offer to the serious newcomers a more direct
 path to start hacking with CLJS for building state of the art libs.
 
+`cljs-start` uses few libs created or maintained by
+[Chas Emerick][13]. Without is great works, this lein-template would
+not exist.
+
 ## Requirements
 
 The only `cljs-start` requirements are [Java][4], [Leiningen][5], and
@@ -73,28 +77,15 @@ Generating fresh 'lein new' cljs-start project.
 cd wonderful-lib
 lein compile
 Compiling ClojureScript.
-Retrieving ring/ring/1.2.1/ring-1.2.1.pom from clojars
-Retrieving ring/ring-devel/1.2.1/ring-devel-1.2.1.pom from clojars
-Retrieving ring/ring-jetty-adapter/1.2.1/ring-jetty-adapter-1.2.1.pom from clojars
-Retrieving ring/ring-servlet/1.2.1/ring-servlet-1.2.1.pom from clojars
-Retrieving ring/ring/1.2.1/ring-1.2.1.jar from clojars
-Retrieving ring/ring-jetty-adapter/1.2.1/ring-jetty-adapter-1.2.1.jar from clojars
-Retrieving ring/ring-devel/1.2.1/ring-devel-1.2.1.jar from clojars
-Retrieving ring/ring-servlet/1.2.1/ring-servlet-1.2.1.jar from clojars
 Compiling "dev-resources/public/js/advanced.js" from ["src/cljs" "test/cljs"]...
-WARNING: set-print-fn! already refers to: cljs.core/set-print-fn! being replaced by: cemerick.cljs.test/set-print-fn! at line 252 /Users/mimmo/tmp/wonderful-lib/target/cljsbuild-compiler-0/cemerick/cljs/test.cljs
-Successfully compiled "dev-resources/public/js/advanced.js" in 17.894572 seconds.
+Successfully compiled "dev-resources/public/js/advanced.js" in 18.017258 seconds.
 Compiling "dev-resources/public/js/simple.js" from ["src/cljs" "test/cljs"]...
-WARNING: set-print-fn! already refers to: cljs.core/set-print-fn! being replaced by: cemerick.cljs.test/set-print-fn! at line 252 /Users/mimmo/tmp/wonderful-lib/target/cljsbuild-compiler-1/cemerick/cljs/test.cljs
-Successfully compiled "dev-resources/public/js/simple.js" in 5.553004 seconds.
+Successfully compiled "dev-resources/public/js/simple.js" in 8.929018 seconds.
 Compiling "dev-resources/public/js/wonderful-lib.js" from ["src/cljs" "test/cljs" "dev-resources/tools/repl"]...
-WARNING: set-print-fn! already refers to: cljs.core/set-print-fn! being replaced by: cemerick.cljs.test/set-print-fn! at line 252 /Users/mimmo/tmp/wonderful-lib/target/cljsbuild-compiler-2/cemerick/cljs/test.cljs
-Successfully compiled "dev-resources/public/js/wonderful-lib.js" in 3.698392 seconds.
-Compiling "dev-resources/public/js/deploy.js" from ["src/cljs"]...
-Successfully compiled "dev-resources/public/js/deploy.js" in 2.616146 seconds.
+Successfully compiled "dev-resources/public/js/wonderful-lib.js" in 6.522373 seconds.
+Compiling "dev-resources/public/js/useless.js" from ["src/cljs"]...
+Successfully compiled "dev-resources/public/js/useless.js" in 4.451348 seconds.
 ```
-
-Don't worry about the received warnings. They are expected. 
 
 ### Run the tests
 
@@ -134,7 +125,7 @@ Ran 1 tests containing 2 assertions.
 ```clj
 lein repl
 Compiling ClojureScript.
-nREPL server started on port 49444 on host 127.0.0.1
+nREPL server started on port 53604 on host 127.0.0.1
 REPL-y 0.2.1
 Clojure 1.5.1
     Docs: (doc function-name-here)
@@ -144,25 +135,29 @@ Clojure 1.5.1
     Exit: Control+D or (exit) or (quit)
  Results: Stored in vars *1, *2, *3, an exception in *e
 
-user=>
+ring.server=>
 ```
 
 ### Run the HTTP server
 
 ```clj
-user=> (do (use 'ring.server) (run))
-2013-10-31 21:34:32.288:INFO:oejs.Server:jetty-7.6.8.v20121106
-2013-10-31 21:34:32.321:INFO:oejs.AbstractConnector:Started SelectChannelConnector@0.0.0.0:3000
-#<Server org.eclipse.jetty.server.Server@2128d26f>
-user=>
+ring.server=> (run)
+2013-11-18 21:57:57.219:INFO:oejs.Server:jetty-7.6.8.v20121106
+2013-11-18 21:57:57.249:INFO:oejs.AbstractConnector:Started SelectChannelConnector@0.0.0.0:3000
+#<Server org.eclipse.jetty.server.Server@31153b19>
+ring.server=>
 ```
 
 ### Run the bREPL from the nREPL
 
-From the active REPL just evaluate `(browser-repl)` expression.
+From the active REPL evaluate the following expressions:
 
 ```clj
-user=> (browser-repl)
+ring.server=> (def repl-env (reset! cemerick.austin.repls/browser-repl-env
+         #_=>               (cemerick.austin/repl-env)))
+Browser-REPL ready @ http://localhost:53659/6909/repl/start
+#'ring.server/repl-env
+ring.server=> (cemerick.austin.repls/cljs-repl repl-env)
 Type `:cljs/quit` to stop the ClojureScript REPL
 nil
 cljs.user=>
@@ -191,7 +186,7 @@ Ran 1 tests containing 2 assertions.
 {:test 1, :pass 2, :fail 0, :error 0, :type :summary}
 cljs.user=> :cljs/quit
 :cljs/quit
-user=>
+ring.server=>
 ```
 
 ### Stop the HTTP server and restart the server
@@ -230,7 +225,6 @@ jar tvf target/wonderful-lib-0.0.1-SNAPSHOT.jar
  11220 Thu Oct 31 22:24:36 CET 2013 META-INF/leiningen/wonderful-lib/wonderful-lib/LICENSE
      0 Thu Oct 31 21:24:32 CET 2013 wonderful_lib/
    174 Thu Oct 31 21:24:32 CET 2013 wonderful_lib/core.cljs
-Giacomo-Cosenzas-iMac:wonderful-lib mimmo$
 ```
 
 ### Have fun
@@ -252,3 +246,4 @@ under the Eclipse Public License, the same as Clojure.
 [10]: http://www.webkit.org/
 [11]: http://phantomjs.org/download.html
 [12]: http://localhost:3000/
+[13]: https://github.com/cemerick
