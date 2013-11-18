@@ -18,7 +18,7 @@
                  [org.clojure/clojurescript "0.0-2030"]]
 
   ;; The plugins which the project depends on. Here we're using the
-  ;; experimental 1.0.0-SNAPSHOT release. Change it to the official
+  ;; experimental 1.0.0-alpha2 release. Change it to the official
   ;; 1.0.0 as soon as it will be available
   :plugins [[lein-cljsbuild "1.0.0-alpha2"]]
 
@@ -33,7 +33,7 @@
   {:builds {;; This build is only used for including any cljs source
             ;; in the packaged jar when you issue lein jar command and
             ;; any other command that depends on it
-            :deploy
+            :useless
             {;; The dir pathnames where cljs sources live. Do not
              ;; include here any cljs source which is only used during
              ;; development or testing
@@ -46,9 +46,9 @@
              ;; Compilation Options
              :compiler
              {;; The JS file pathname emitted by the compiler
-              :output-to "dev-resources/public/js/deploy.js"
+              :output-to "dev-resources/public/js/useless.js"
               ;; Compiler optimizations option set to :none to speed
               ;; up this useless compilation
               :optimizations :none
               ;; No need to prettify the emitted js file
-              :pretty-print none}}}})
+              :pretty-print false}}}})
