@@ -15,12 +15,12 @@
   ;; The libs which the project depends on.
   ;; Here we use the latest stable clj and cljs releases
   :dependencies [[org.clojure/clojure "1.5.1"]
-                 [org.clojure/clojurescript "0.0-1978"]]
+                 [org.clojure/clojurescript "0.0-2030"]]
 
   ;; The plugins which the project depends on. Here we're using the
   ;; experimental 1.0.0-SNAPSHOT release. Change it to the official
   ;; 1.0.0 as soon as it will be available
-  :plugins [[lein-cljsbuild "1.0.0-SNAPSHOT"]]
+  :plugins [[lein-cljsbuild "1.0.0-alpha2"]]
 
   ;; Hooks the cljsbuild subtasks to the lein tasks: lein clean, lein
   ;; compile, lein test and lein jar
