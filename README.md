@@ -154,7 +154,7 @@ From the active REPL evaluate the following expressions:
 
 ```clj
 ring.server=> (def repl-env (reset! cemerick.austin.repls/browser-repl-env
-         #_=>               (cemerick.austin/repl-env)))
+                            (cemerick.austin/repl-env)))
 Browser-REPL ready @ http://localhost:53659/6909/repl/start
 #'ring.server/repl-env
 ring.server=> (cemerick.austin.repls/cljs-repl repl-env)
