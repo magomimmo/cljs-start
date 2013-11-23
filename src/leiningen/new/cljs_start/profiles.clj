@@ -38,7 +38,7 @@
        ;; The lib for cljs unit testing which is a maximal port of
        ;; clojure.test standard lib; 
        ;; The lib for instrumenting the brepl
-       :plugins [[com.cemerick/clojurescript.test "0.2.0"]
+       :plugins [[com.cemerick/clojurescript.test "0.2.1"]
                  [com.cemerick/austin "0.1.3"]]
 
        ;; Cljsbuild settings for development and test phases
