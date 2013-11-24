@@ -135,17 +135,17 @@ Clojure 1.5.1
     Exit: Control+D or (exit) or (quit)
  Results: Stored in vars *1, *2, *3, an exception in *e
 
-ring.server=>
+user=>
 ```
 
 ### Run the HTTP server
 
 ```clj
-ring.server=> (run)
+user=> (run)
 2013-11-18 21:57:57.219:INFO:oejs.Server:jetty-7.6.8.v20121106
 2013-11-18 21:57:57.249:INFO:oejs.AbstractConnector:Started SelectChannelConnector@0.0.0.0:3000
 #<Server org.eclipse.jetty.server.Server@31153b19>
-ring.server=>
+user=>
 ```
 
 ### Run the bREPL from the nREPL
@@ -153,11 +153,8 @@ ring.server=>
 From the active REPL evaluate the following expressions:
 
 ```clj
-ring.server=> (def repl-env (reset! cemerick.austin.repls/browser-repl-env
-                            (cemerick.austin/repl-env)))
+user=> (browser-repl)
 Browser-REPL ready @ http://localhost:53659/6909/repl/start
-#'ring.server/repl-env
-ring.server=> (cemerick.austin.repls/cljs-repl repl-env)
 Type `:cljs/quit` to stop the ClojureScript REPL
 nil
 cljs.user=>

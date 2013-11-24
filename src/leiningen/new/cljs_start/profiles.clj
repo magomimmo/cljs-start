@@ -83,5 +83,8 @@
                         "phantomjs-advanced"
                         ["phantomjs" :runner "dev-resources/public/js/advanced.js"]}}
 
-       ;; to set the ring.server as the initial namespace at the repl
-       :repl-options {:init-ns ring.server}}}
+       :injections [(require '[ring.server :as http :refer [run]]
+                             'cemerick.austin.repls)
+                    (defn browser-repl []
+                      (cemerick.austin.repls/cljs-repl (reset! cemerick.austin.repls/browser-repl-env
+                                                               (cemerick.austin/repl-env))))]}}
