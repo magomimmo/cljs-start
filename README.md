@@ -64,7 +64,7 @@ You're now ready to start creating the next wonderful CLJS lib with
 
 ## Quick start guide
 
-### Create the project
+### Create the project for your CLJS lib
 
 ```bash
 lein new cljs-start wonderful-lib
@@ -87,7 +87,7 @@ Compiling "dev-resources/public/js/useless.js" from ["src/cljs"]...
 Successfully compiled "dev-resources/public/js/useless.js" in 4.451348 seconds.
 ```
 
-### Run the tests
+### Run the dummy tests
 
 ```bash
 lein test
@@ -171,7 +171,7 @@ cljs.user=> (js/alert "Hello, ClojureScript!")
 nil
 ```
 
-### Run the included unit tests from the bREPL and exit the bREPL
+### Run the included dummy unit tests from the bREPL and exit the bREPL
 
 ```clj
 cljs.user=> (cemerick.cljs.test/run-all-tests)
@@ -186,12 +186,12 @@ cljs.user=> :cljs/quit
 ring.server=>
 ```
 
-### Stop the HTTP server and restart the server
+### Stop and restart the HTTP server
 
 ```clj
-user=> (.stop server)
+user=> (.stop http/server)
 nil
-user=> (.start server)
+user=> (.start http/server)
 2013-10-31 22:21:09.543:INFO:oejs.Server:jetty-7.6.8.v20121106
 2013-10-31 22:21:09.558:INFO:oejs.AbstractConnector:Started SelectChannelConnector@0.0.0.0:3000
 nil
