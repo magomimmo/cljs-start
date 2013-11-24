@@ -183,7 +183,7 @@ Ran 1 tests containing 2 assertions.
 {:test 1, :pass 2, :fail 0, :error 0, :type :summary}
 cljs.user=> :cljs/quit
 :cljs/quit
-ring.server=>
+user=>
 ```
 
 ### Stop and restart the HTTP server
