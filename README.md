@@ -3,7 +3,9 @@
 A [lein template][1] for creating [ClojureScript][2] libs with
 batteries included.
 
-> NOTE: `cljs-start` has just been created. Use it at your own risk.
+> If you're in hurry and want to see and example of using `cljs-start`
+> to instrument an already implemented CLJS lib, take a look at the
+> [provided sample][14].
 
 ## Introduction
 
@@ -244,3 +246,4 @@ under the Eclipse Public License, the same as Clojure.
 [11]: http://phantomjs.org/download.html
 [12]: http://localhost:3000/
 [13]: https://github.com/cemerick
+[14]: https://github.com/magomimmo/cljs-start/blob/master/doc/sample.md
