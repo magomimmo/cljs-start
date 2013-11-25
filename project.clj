@@ -1,8 +1,9 @@
-(defproject cljs-start/lein-template "0.0.5"
+(defproject cljs-start/lein-template "0.0.6"
   :description "A lein-template for creating ClojureScript libs with batteries included "
   :url "https://github.com/magomimmo/cljs-start"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :min-lein-version "2.2.0"
   :pom-addition [:developers [:developer
                               [:id "magomimmo"]
                               [:name "Mimmo Cosenza"]
