@@ -7,7 +7,7 @@ it could be useful to instrument an existing CLJS lib as well.
 
 In this document we're going to demonstrate how to use `cljs-start`
 lein-template to the [hiccups][2] lib which is one of the CLJS lib
-which has been used in the [modern-cljs][3] series of tutorial on
+which has been used in the [modern-cljs][3] series of tutorials on
 [clojurescript][4].
 
 ## Fork and clone the original hiccups lib
@@ -23,15 +23,16 @@ git remote add upstream https://github.com/teropa/hiccups.git
 
 > NOTE 1: I always fork the repos I use. Then I always add the
 > original repo (upstream) as a remote repo to be ready to be
-> collaborative if.
+> collaborative with the authors by eventually submitting push
+> requests.
 
 > NOTE 2: I'm assuming that `hiccups` has been cloned in the
 > `~/Developer/hiccups` directory.
 
 ## Create a new clojurescript lib
 
-The next step is to create a new CLJS lib by using `cljs-start` in a
-temporary directory.
+The next step is to create a new CLJS lib by using `cljs-start`
+somewhere.
 
 ```bash
 mkdir ~/tmp
@@ -43,8 +44,8 @@ cd hiccups
 
 ## Copy the source from the original repo
 
-Now we have to copy the source code from the origin `hiccups` repo to
-the newly created one.
+Now we have to copy the source code from the original `hiccups` repo
+to the newly created one.
 
 Most CLJS libs which define macros puts the corresponding CLJ source
 files in the same directory hosting the CLJS source files which is not
@@ -142,7 +143,7 @@ Successfully compiled "dev-resources/public/js/advanced.js" in 19.8997 seconds.
 Compiling "dev-resources/public/js/simple.js" from ["src/cljs" "test/cljs"]...
 Successfully compiled "dev-resources/public/js/simple.js" in 8.564031 seconds.
 Compiling "dev-resources/public/js/hiccups.js" from ["src/cljs" "test/cljs" "dev-resources/tools/repl"]...
-Successfully compiled "dev-resources/public/js/hiccpus.js" in 6.022061 seconds.
+Successfully compiled "dev-resources/public/js/hiccups.js" in 6.022061 seconds.
 Compiling "dev-resources/public/js/useless.js" from ["src/cljs"]...
 Successfully compiled "dev-resources/public/js/useless.js" in 4.445521 seconds.
 Compiling ClojureScript.
@@ -233,11 +234,11 @@ is the result.
   ...)
 ```
 
-> NOTE 4: Aside from the namespace declaration which has been adapted to
-> the original `hiccups` lib and corresponding unit test, we only
+> NOTE 4: Aside from the namespace declaration which has been adapted
+> to the original `hiccups` lib and corresponding unit tests, we only
 > commented out the `(t/is-thrown (hiccups/html (vector [:p "a"]
-> [:p "b"])))` because the `clojurescript.test` lib does not define the
-> `is-thrown` symbol.
+> [:p "b"])))` because the `clojurescript.test` lib does not define
+> the `is-thrown` symbol.
 
 ### Light the fire
 
@@ -314,7 +315,7 @@ nil
 cljs.user=>
 ```
 
-Now visit the [localhost:3000][6] URL and wait for the bREPL
+Now visit the [localhost:3000][5] URL and wait for the bREPL
 connection to be established.
 
 > NOTE 5: If you use Chrome it should shortly appear a `Waiting for
