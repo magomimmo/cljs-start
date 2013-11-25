@@ -23,7 +23,7 @@ a productive programming environment (e.g. [CoffeScript][3]).
 path to start hacking with CLJS for building state of the art libs.
 
 `cljs-start` uses few libs created or maintained by
-[Chas Emerick][13]. Without is great works, this lein-template would
+[Chas Emerick][13]. Without his great works, this lein-template would
 not exist.
 
 ## Requirements
