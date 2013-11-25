@@ -287,3 +287,54 @@ Ran 7 tests containing 60 assertions.
 Great. All the 60 assertions from the 7 unit tests passed.
 
 ### bREPLing with hiccups
+
+Let's now have some fun by bREPLing with `hiccups`.
+
+```clj
+iacomos-MacBook-Pro:hiccups mimmo$ lein repl
+Compiling ClojureScript.
+nREPL server started on port 54995 on host 127.0.0.1
+REPL-y 0.3.0
+Clojure 1.5.1
+    Docs: (doc function-name-here)
+          (find-doc "part-of-name-here")
+  Source: (source function-name-here)
+ Javadoc: (javadoc java-object-or-class-here)
+    Exit: Control+D or (exit) or (quit)
+ Results: Stored in vars *1, *2, *3, an exception in *e
+
+user=> (run)
+2013-11-25 14:45:04.701:INFO:oejs.Server:jetty-7.6.8.v20121106
+2013-11-25 14:45:04.729:INFO:oejs.AbstractConnector:Started SelectChannelConnector@0.0.0.0:3000
+#<Server org.eclipse.jetty.server.Server@18ecf9ac>
+user=> (browser-repl)
+Browser-REPL ready @ http://localhost:55001/8638/repl/start
+Type `:cljs/quit` to stop the ClojureScript REPL
+nil
+cljs.user=>
+```
+
+Now visit the [localhost:3000][6] URL and wait for the bREPL
+connection to be established.
+
+> NOTE 5: If you use Chrome it should shortly appear a `Waiting for
+> localhost` message in the status bar.
+
+```clj
+cljs.user=> (ns cljs.user (:require-macros [hiccups.core :as h :refer (html)]))
+nil
+cljs.user=> (html [:div])
+"<div></div>"
+cljs.user=> (html [:div#myID [:p.a.b "some text"] [:p.a.b.c "more test"]])
+"<div id=\"myID\"><p class=\"a b\">some text</p><p class=\"a b c\">more test</p></div>"
+```
+
+Great. It worked like a charm.
+
+Now it's your turn in designing and implementing a great CLJS lib.
+
+[1]: https://github.com/magomimmo/cljs-start
+[2]: https://github.com/teropa/hiccups
+[3]: https://github.com/magomimmo/modern-cljs/blob/0a6ece9ecebebb675e2b8696092a839d6f33494b/doc/tutorial-09.md#hiccups
+[4]: https://github.com/clojure/clojurescript
+[5]: http://localhost:3000/
