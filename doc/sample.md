@@ -6,8 +6,8 @@ Even if [cljs-start][1] could be used to create a CLJS lib from scratch,
 it could be useful to instrument an existing CLJS lib as well.
 
 In this document we're going to demonstrate how to use `cljs-start`
-lein-template to the [hiccups][2] lib which is one of the CLJS lib
-which has been used in the [modern-cljs][3] series of tutorials on
+lein-template with the [hiccups][2] lib which is one of the CLJS lib
+which has been included in the [modern-cljs][3] series of tutorials on
 [clojurescript][4].
 
 ## Fork and clone the original hiccups lib
@@ -130,6 +130,45 @@ the `test/cljs/hiccups` directory.
 
 > NOTE 3: Here we defined a failing test just to remember that we have
 > to implement the unit tests for the `hiccups` lib.
+
+Here is the complete directories layout of the newly created `hiccups`
+lib instrumented by the `cljs-start` lein-template.
+
+```bash
+tree
+.
+├── LICENSE
+├── README.md
+├── dev-resources
+│   ├── public
+│   │   ├── index.html
+│   │   └── js
+│   └── tools
+│       ├── http
+│       │   └── ring
+│       │       └── server.clj
+│       └── repl
+│           └── brepl
+│               └── connect.cljs
+├── doc
+│   └── intro.md
+├── profiles.clj
+├── project.clj
+├── src
+│   ├── clj
+│   │   └── hiccups
+│   │       ├── core.clj
+│   │       └── runtime.clj
+│   └── cljs
+│       └── hiccups
+│           └── runtime.cljs
+└── test
+    └── cljs
+        └── hiccups
+            └── core_test.cljs
+
+17 directories, 12 files
+```
 
 ### Light the fire
 
