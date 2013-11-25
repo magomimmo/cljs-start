@@ -327,7 +327,7 @@ nil
 cljs.user=> (html [:div])
 "<div></div>"
 cljs.user=> (html [:div#myID [:p.a.b "some text"] [:p.a.b.c "more test"]])
-"<div id=\"myID\"><p class=\"a b\">some text</p><p class=\"a b c\">more test</p></div>"
+"<div id=\"myID\"><p class=\"a b\">some text</p><p class=\"a b c\">more text</p></div>"
 ```
 
 Great. It worked like a charm.
