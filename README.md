@@ -28,8 +28,8 @@ not exist.
 
 ## Requirements
 
-The only `cljs-start` requirements are [Java >= "1.6"][4],
-[Leiningen >= "2.2.0"][5], and [PhantomJS >= "1.9.1"][6]
+The only `cljs-start` requirements are [Java `>= "1.6"`][4],
+[Leiningen `>= "2.2.0"`][5], and [PhantomJS `>= "1.9.1"`][6]
 
 ## Installation
 
