@@ -171,6 +171,11 @@ interact with the browser.
 ```clj
 cljs.user=> (js/alert "Hello, ClojureScript!")
 nil
+cljs.user=> (ns cljs.user (:use [wonderful-lib.core :only [foo]]))
+nil
+cljs.user=> (foo "Welcome to ")
+"Welcome to ClojureScript!"
+cljs.user=>
 ```
 
 ### Run the included dummy unit tests from the bREPL and exit the bREPL
