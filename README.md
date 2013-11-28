@@ -39,7 +39,7 @@ Depending on your machine you could have Java already installed on
 it. CLJS requires a Java Development Kit (JDK) version 6.0 or
 later. If you need to install the JDK or to upgrade it, just follow
 the instruction for your operating system available on the
-[main java website][7].
+[main java website][4].
 
 ### Installing Leiningen
 
