@@ -36,7 +36,7 @@
                       [enlive "1.1.4"]]
 
        ;; The lib for cljs unit testing which is a maximal port of
-       ;; clojure.test standard lib; 
+       ;; clojure.test standard lib;
        ;; The lib for instrumenting the brepl
        :plugins [[com.cemerick/clojurescript.test "0.2.1"]
                  [com.cemerick/austin "0.1.3"]]
@@ -47,25 +47,34 @@
         ;; options. We do not include the :none optimization.
         :builds {;; The :whitespace optimizations build. This is the
                  ;; only build included in the index.html page used
-                 ;; for the brepl connection
+                 ;; for the brepl connection. It features source-map
+                 ;; too.
                  :whitespace
                  {:source-paths ["src/cljs" "test/cljs" "dev-resources/tools/repl"]
                   :compiler
                   {:output-to "dev-resources/public/js/{{name}}.js"
+                   :output-dir "dev-resources/public/js"
+                   :source-map "dev-resources/public/js/{{name}}.js.map"
                    :optimizations :whitespace
                    :pretty-print true}}
-                 ;; The :simple optimizations build
+                 ;; The :simple optimizations build. It features
+                 ;; source-map too.
                  :simple
                  {:source-paths ["src/cljs" "test/cljs"]
                   :compiler
                   {:output-to "dev-resources/public/js/simple.js"
+                   :output-dir "dev-resources/public/js"
+                   :source-map "dev-resources/public/js/simple.js.map"
                    :optimizations :simple
                    :pretty-print false}}
-                 ;; The :advanced optimizations build
+                 ;; The :advanced optimizations build. It features
+                 ;; source-map too.
                  :advanced
                  {:source-paths ["src/cljs" "test/cljs"]
                   :compiler
                   {:output-to "dev-resources/public/js/advanced.js"
+                   :output-dir "dev-resources/public/js/"
+                   :source-map "dev-resources/public/js/advanced.js.map"
                    :optimizations :advanced
                    :pretty-print false}}}
 
