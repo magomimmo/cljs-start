@@ -284,8 +284,8 @@ Then
   (i.e. `...js/wonderful-lib/core.cljs`). The source code of the
   `core.cljs` will be displayed in the a new tab.
 
-Now click on the line number you for which you want to set a
-breakpoint and just reload the `index.html` page.
+Now click on the line number in the `core.cljs` for which you want to
+set a breakpoint and just reload the `index.html` page.
 
 Unfortunately the very first time you reload the page, the debugger
 close the `core.cljs` file and open the `wonderful-lib.js` file
@@ -307,7 +307,7 @@ Not so bad.
 ## It's your turn
 
 The `cljs-start` lein-template tries to reduce as much as possible the
-incidental complexity for creating pure CLJS lib. It's now your turn
+incidental complexity for creating pure CLJS libs. It's now your turn
 to design and implement a wonderful lib without having to think about
 all those instrumentation already prepared.
 
