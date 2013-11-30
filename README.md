@@ -277,19 +277,19 @@ Then
 * open the `~/Developer/wonderful-lib/dev-resources/public/index.html`
   page in Chrome
 * click the `Sources` tab the Developer Tools Window
-* hit `Cmd+o` (or the corresponding keys chord of your operating
+* hit `Cmd+O` (or the corresponding keys chord of your operating
   system)
 * type `js/core` in the search field
 * select the first match from the result set
   (i.e. `...js/wonderful-lib/core.cljs`). The source code of the
   `core.cljs` will be displayed in the a new tab.
 
-Now click on the line number corresponding to the `(if greeting` code
-line and just reload the `index.html` page.
+Now click on the line number you for which you want to set a
+breakpoint and just reload the `index.html` page.
 
-Unfortunately the very first time you reload the page, the debugging
-session close the `core.cljs` file and open the `wonderful-lib.js`
-file emitted by the CLJS compiler.
+Unfortunately the very first time you reload the page, the debugger
+close the `core.cljs` file and open the `wonderful-lib.js` file
+emitted by the CLJS compiler instead.
 
 To overcome this problem just open the `core.cljs` again.
 
