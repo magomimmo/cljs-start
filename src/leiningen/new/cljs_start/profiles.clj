@@ -63,8 +63,6 @@
                  {:source-paths ["src/cljs" "test/cljs"]
                   :compiler
                   {:output-to "dev-resources/public/js/simple.js"
-                   :output-dir "dev-resources/public/js"
-                   :source-map "dev-resources/public/js/simple.js.map"
                    :optimizations :simple
                    :pretty-print false}}
                  ;; The :advanced optimizations build. It features
@@ -73,8 +71,6 @@
                  {:source-paths ["src/cljs" "test/cljs"]
                   :compiler
                   {:output-to "dev-resources/public/js/advanced.js"
-                   :output-dir "dev-resources/public/js/"
-                   :source-map "dev-resources/public/js/advanced.js.map"
                    :optimizations :advanced
                    :pretty-print false}}}
 
