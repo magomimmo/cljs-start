@@ -335,3 +335,7 @@ under the Eclipse Public License, the same as Clojure.
 [15]: https://github.com/cemerick/clojurescript.test
 [16]: https://github.com/cemerick/austin
 [17]: https://github.com/technomancy/leiningen/blob/master/doc/PROFILES.md
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/magomimmo/cljs-start/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
