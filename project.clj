@@ -1,4 +1,4 @@
-(defproject cljs-start/lein-template "0.0.7"
+(defproject cljs-start/lein-template "0.0.8"
   :description "A lein-template for creating ClojureScript libs with batteries included "
   :url "https://github.com/magomimmo/cljs-start"
   :license {:name "Eclipse Public License"
