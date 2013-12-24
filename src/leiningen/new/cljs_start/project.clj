@@ -6,7 +6,7 @@
             :distribution :repo}
 
   ;; Required by cljsbuild  plugin
-  :min-lein-version "2.2.0"
+  :min-lein-version "2.3.4"
 
   ;; We need to add src/cljs too, because cljsbuild does not add its
   ;; source-paths to the project source-paths
@@ -15,12 +15,12 @@
   ;; The libs which the project depends on.
   ;; Here we use the latest stable clj and cljs releases
   :dependencies [[org.clojure/clojure "1.5.1"]
-                 [org.clojure/clojurescript "0.0-2080"]]
+                 [org.clojure/clojurescript "0.0-2127"]]
 
   ;; The plugins which the project depends on. Here we're using the
   ;; experimental 1.0.0-alpha2 release. Change it to the official
   ;; 1.0.0 as soon as it will be available
-  :plugins [[lein-cljsbuild "1.0.0"]]
+  :plugins [[lein-cljsbuild "1.0.1"]]
 
   ;; Hooks the cljsbuild subtasks to the lein tasks: lein clean, lein
   ;; compile, lein test and lein jar
