@@ -4,7 +4,7 @@
 ;;; if you can add files containing macros and compile-time only
 ;;; functions in the :source-paths setting of the :builds, it is
 ;;; strongly suggested to add them to the leiningen :source-paths.
-(ns {{namespace}})
+(ns {{namespace}}.core)
 
 (defn foo [greeting]
   (if greeting 

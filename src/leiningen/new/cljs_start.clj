@@ -29,5 +29,5 @@
              ["dev-resources/public/index.html" (render "index.html" data)]
              ["dev-resources/tools/http/ring/server.clj" (render "server.clj")]
              ["dev-resources/tools/repl/brepl/connect.cljs" (render "connect.cljs")]
-             ["src/cljs/{{nested-dirs}}.cljs" (render "core.cljs" data)]
-             ["test/cljs/{{nested-dirs}}._test.cljs" (render "core_test.cljs" data)])))
+             ["src/cljs/{{nested-dirs}}/core.cljs" (render "core.cljs" data)]
+             ["test/cljs/{{nested-dirs}}/core_test.cljs" (render "core_test.cljs" data)])))
