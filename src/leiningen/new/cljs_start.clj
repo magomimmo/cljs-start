@@ -1,14 +1,23 @@
 (ns leiningen.new.cljs-start
-  (:require [leiningen.new.templates :refer [renderer name-to-path ->files]]
+  (:require [leiningen.new.templates :refer [renderer
+                                             multi-segment
+                                             sanitize-ns
+                                             project-name
+                                             name-to-path 
+                                             year
+                                             ->files]]
             [leiningen.core.main :as main]))
-
-(def render (renderer "cljs-start"))
 
 (defn cljs-start
   "Create a Leiningen project for developing ClojureScript Libs"
   [name]
-  (let [data {:name name
-              :sanitized (name-to-path name)}]
+  (let [render (renderer "cljs-start")
+        main-ns (multi-segment (sanitize-ns name))
+        data {:raw-name name
+              :name (project-name name)
+              :namespace main-ns
+              :nested-dirs (name-to-path main-ns)
+              :year (year)}]
     (main/info "Generating fresh" name "project based on 'cljs-start' lein template")
     (->files data
              [".gitignore" (render "gitignore" data)]
@@ -20,5 +29,5 @@
              ["dev-resources/public/index.html" (render "index.html" data)]
              ["dev-resources/tools/http/ring/server.clj" (render "server.clj")]
              ["dev-resources/tools/repl/brepl/connect.cljs" (render "connect.cljs")]
-             ["src/cljs/{{sanitized}}/core.cljs" (render "core.cljs" data)]
-             ["test/cljs/{{sanitized}}/core_test.cljs" (render "core_test.cljs" data)])))
+             ["src/cljs/{{nested-dirs}}.cljs" (render "core.cljs" data)]
+             ["test/cljs/{{nested-dirs}}._test.cljs" (render "core_test.cljs" data)])))
