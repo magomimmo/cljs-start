@@ -9,7 +9,7 @@
   [name]
   (let [data {:name name
               :sanitized (name-to-path name)}]
-    (main/info "Generating fresh 'lein new' cljs-start project.")
+    (main/info "Generating fresh" name "project based on 'cljs-start' lein template")
     (->files data
              [".gitignore" (render "gitignore" data)]
              ["README.md" (render "README.md" data)]
