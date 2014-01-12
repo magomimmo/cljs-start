@@ -1,7 +1,7 @@
 ;;; ****************************** NOTES ******************************
 ;;;
 ;;; The {{name}}/profiles.clj file is used for keeping the developer
-;;; view of your cljs lib separated from its user view. This way the
+;;; view of your cljs lib separated from tge user view. This way the
 ;;; user of your lib does not even see the complexity of the developer
 ;;; view of the lib.  The {{name}}/profiles.clj should never contain
 ;;; any configuration for the :user profile. The content of
@@ -16,7 +16,7 @@
 {:dev { ;; Add the out dir to the dirs to be cleaned by the lein clean
         ;; command. Add here any pathname containing generated files
         ;; to be cleaned by the lein clean command.
-       :clean-targets ["out"]
+       :clean-targets ["out" :target-path]
        ;; Add the test/clj and test/cljs dir to the leiningen
        ;; :test-paths option. It has to contain also the superset of
        ;; all the pathnames used for CLJS purpose. See below the
@@ -49,47 +49,53 @@
                  ;; only build included in the index.html page used
                  ;; for the brepl connection. It features source-map
                  ;; too.
-                 :whitespace
-                 {:source-paths ["src/cljs" "test/cljs" "dev-resources/tools/repl"]
+                 ;; clojurescript.test does not support the :none optimization,
+                 ;; which would be better, beeing very fast, during the development
+                 ;; cycle
+                 :{{name}}
+                 {:source-paths ["test/cljs" "dev-resources/tools/repl"]
                   :compiler
-                  {:output-to "dev-resources/public/js/{{name}}.js"
-                   :output-dir "dev-resources/public/js"
+                  {:output-dir "dev-resources/public/js"
                    :source-map "dev-resources/public/js/{{name}}.js.map"
                    :optimizations :whitespace
-                   :pretty-print true}}
-                 ;; The :simple optimizations build. It features
-                 ;; source-map too.
-                 :simple
-                 {:source-paths ["src/cljs" "test/cljs"]
-                  :compiler
-                  {:output-to "dev-resources/public/js/simple.js"
-                   :optimizations :simple
-                   :pretty-print false}}
-                 ;; The :advanced optimizations build. It features
-                 ;; source-map too.
-                 :advanced
-                 {:source-paths ["src/cljs" "test/cljs"]
-                  :compiler
-                  {:output-to "dev-resources/public/js/advanced.js"
-                   :optimizations :advanced
-                   :pretty-print false}}}
+                   :pretty-print true}}}
 
         ;; Here we configure the test commands for running the
         ;; test. To be able to use this commands you have to install
         ;; phantomjs on you development machine. Phantomjs is the most
         ;; used webkit-based headless browser for unit testing JS code
         :test-commands {;; test :whitespace build against phantomjs
-                        "phantomjs-ws"
-                        ["phantomjs" :runner "dev-resources/public/js/{{name}}.js"]
-                        ;; test :simple build against phantomjs
-                        "phantomjs-simple"
-                        ["phantomjs" :runner "dev-resources/public/js/simple.js"]
-                        ;; test advanced build against phantomjs
-                        "phantomjs-advanced"
-                        ["phantomjs" :runner "dev-resources/public/js/advanced.js"]}}
+                        "phantomjs"
+                        ["phantomjs" :runner "dev-resources/public/js/{{name}}.js"]}}
 
        :injections [(require '[ring.server :as http :refer [run]]
                              'cemerick.austin.repls)
                     (defn browser-repl []
                       (cemerick.austin.repls/cljs-repl (reset! cemerick.austin.repls/browser-repl-env
-                                                               (cemerick.austin/repl-env))))]}}
+                                                               (cemerick.austin/repl-env))))]}
+ :simple {:clean-targets ["out" :target-path]
+          :test-paths ["test/clj" "test/cljs"]
+          :resources-paths ["dev-resources"]
+          :plugins [[com.cemerick/clojurescript.test "0.2.1"]]
+
+          :cljsbuild
+          {:builds {:{{name}}
+                    {:source-paths ["test/cljs"]
+                     :compiler
+                     {:optimizations :simple
+                      :pretty-print false}}}
+           :test-commands {"phantomjs"
+                           ["phantomjs" :runner "dev-resources/public/js/{{name}}.js"]}}}
+ :advanced {:clean-targets ["out" :target-path]
+            :test-paths ["test/clj" "test/cljs"]
+            :resources-paths ["dev-resources"]
+            :plugins [[com.cemerick/clojurescript.test "0.2.1"]]
+
+            :cljsbuild
+            {:builds {:{{name}}
+                      {:source-paths ["test/cljs"]
+                       :compiler
+                       {:optimizations :advanced
+                        :pretty-print false}}}
+             :test-commands {"phantomjs"
+                             ["phantomjs" :runner "dev-resources/public/js/{{name}}.js"]}}}}
