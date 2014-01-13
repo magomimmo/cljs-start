@@ -1,7 +1,7 @@
 ;;; ****************************** NOTES ******************************
 ;;;
 ;;; The {{name}}/profiles.clj file is used for keeping the developer
-;;; view of your cljs lib separated from tge user view. This way the
+;;; view of your cljs lib separated from the user view. This way the
 ;;; user of your lib does not even see the complexity of the developer
 ;;; view of the lib.  The {{name}}/profiles.clj should never contain
 ;;; any configuration for the :user profile. The content of
@@ -43,10 +43,8 @@
 
        ;; Cljsbuild settings for development and test phases
        :cljsbuild
-       {;; Here we configure one build for each compiler optmizations
-        ;; options. We do not include the :none optimization.
-        :builds {;; The :whitespace optimizations build. This is the
-                 ;; only build included in the index.html page used
+       {;; Here we configure the develpment build.
+        :builds {;; The :whitespace optimizations build used
                  ;; for the brepl connection. It features source-map
                  ;; too.
                  ;; clojurescript.test does not support the :none optimization,
@@ -60,12 +58,11 @@
                    :optimizations :whitespace
                    :pretty-print true}}}
 
-        ;; Here we configure the test commands for running the
+        ;; Here we configure the test command for running the
         ;; test. To be able to use this commands you have to install
         ;; phantomjs on you development machine. Phantomjs is the most
         ;; used webkit-based headless browser for unit testing JS code
-        :test-commands {;; test :whitespace build against phantomjs
-                        "phantomjs"
+        :test-commands {"phantomjs"
                         ["phantomjs" :runner "dev-resources/public/js/{{name}}.js"]}}
 
        :injections [(require '[ring.server :as http :refer [run]]
@@ -73,6 +70,7 @@
                     (defn browser-repl []
                       (cemerick.austin.repls/cljs-repl (reset! cemerick.austin.repls/browser-repl-env
                                                                (cemerick.austin/repl-env))))]}
+ ;; simple profile.
  :simple {:clean-targets ["out" :target-path]
           :test-paths ["test/clj" "test/cljs"]
           :resources-paths ["dev-resources"]
@@ -86,6 +84,7 @@
                       :pretty-print false}}}
            :test-commands {"phantomjs"
                            ["phantomjs" :runner "dev-resources/public/js/{{name}}.js"]}}}
+ ;; advanced profile
  :advanced {:clean-targets ["out" :target-path]
             :test-paths ["test/clj" "test/cljs"]
             :resources-paths ["dev-resources"]
