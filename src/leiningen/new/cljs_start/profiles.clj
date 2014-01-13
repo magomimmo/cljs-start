@@ -16,7 +16,10 @@
           :plugins [[com.cemerick/clojurescript.test "0.2.1"]]
           :cljsbuild
           {:builds {:{{name}}
-                    {:source-paths ["test/cljs"]}}
+                    {:source-paths ["test/cljs"]
+                     :compiler
+                     {:output-dir "dev-resources/public/js"
+                      :source-map "dev-resources/public/js/{{name}}.js.map"}}}
            :test-commands {"phantomjs"
                            ["phantomjs" :runner "dev-resources/public/js/{{name}}.js"]}}}
  :dev [:shared
@@ -29,8 +32,7 @@
         {:builds {:{{name}}
                  {:source-paths ["dev-resources/tools/repl"]
                   :compiler
-                  {:source-map "dev-resources/public/js/{{name}}.js.map"
-                   :optimizations :whitespace
+                  {:optimizations :whitespace
                    :pretty-print true}}}}
 
         :injections [(require '[ring.server :as http :refer [run]]
@@ -45,11 +47,11 @@
                      {:compiler {:optimizations :simple
                                  :pretty-print false}}}}}]
  ;; advanced profile
- :advanced [:shared 
+ :advanced [:shared
             {:cljsbuild
              {:builds {:{{name}}
                        {:source-paths ["test/cljs"]
                         :compiler
                         {:optimizations :advanced
                          :pretty-print false}}}}}]}
- 
+
