@@ -3,5 +3,3 @@
 ;;; :dev profile only.
 (ns brepl.connect
   (:require [clojure.browser.repl]))
-
-;;(repl/connect "http://localhost:9000/repl")
