@@ -6,6 +6,7 @@
                                              project-name
                                              name-to-path 
                                              year
+                                             sanitize
                                              ->files]]
             [leiningen.core.main :as main]))
 
@@ -18,6 +19,7 @@
               :name (project-name name)
               :namespace main-ns
               :nested-dirs (name-to-path main-ns)
+              :sanitized (sanitize (project-name name))
               :year (year)}]
     (main/info "Generating a project called " name "based on the 'cljs-start' template")
     (main/info "To see other templates (app, lein plugin, etc), try `lein help new`.")

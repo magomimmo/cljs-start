@@ -31,6 +31,6 @@
              ;:jar true
              ;; Compilation Options
              :compiler
-             {:output-to "dev-resources/public/js/{{name}}.js"
+             {:output-to "dev-resources/public/js/{{sanitized}}.js"
               :optimizations :advanced
               :pretty-print false}}}})
