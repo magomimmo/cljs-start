@@ -13,7 +13,7 @@
 {:shared {:clean-targets ["out" :target-path]
           :test-paths ["test/clj" "test/cljs"]
           :resources-paths ["dev-resources"]
-          :plugins [[com.cemerick/clojurescript.test "0.2.1"]]
+          :plugins [[com.cemerick/clojurescript.test "0.2.2"]]
           :cljsbuild
           {:builds {:{{name}}
                     {:source-paths ["test/cljs"]
@@ -26,15 +26,15 @@
        {:source-paths ["dev-resources/tools/http" "dev-resources/tools/repl"]
         :dependencies [[ring "1.2.1"]
                        [compojure "1.1.6"]
-                       [enlive "1.1.4"]]
+                       [enlive "1.1.5"]]
         :plugins [[com.cemerick/austin "0.1.3"]]
         :cljsbuild
         {:builds {:{{name}}
-                 {:source-paths ["dev-resources/tools/repl"]
-                  :compiler
-                  {:optimizations :whitespace
-                   :pretty-print true}}}}
-
+                  {:source-paths ["dev-resources/tools/repl"]
+                   :compiler
+                   {:optimizations :whitespace
+                    :pretty-print true}}}}
+        
         :injections [(require '[ring.server :as http :refer [run]]
                               'cemerick.austin.repls)
                      (defn browser-repl []
