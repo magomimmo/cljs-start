@@ -373,5 +373,3 @@ under the Eclipse Public License, the same as Clojure.
 [17]: https://github.com/technomancy/leiningen/blob/master/doc/PROFILES.md
 
 
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/magomimmo/cljs-start/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
