@@ -164,7 +164,7 @@ cljs.user=>
 
 After having run the HTTP server and the bREPL, Just open
 [localhost:3000][12] in a browser, wait a moment and go back to the bREPL to
-interact with the browser frow the REPL.
+interact with the browser from the REPL.
 
 ```clj
 cljs.user=> (js/alert "Hello, ClojureScript!")
