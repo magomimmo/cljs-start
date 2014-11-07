@@ -116,8 +116,10 @@ Running ClojureScript test: phantomjs
 Testing wonderful-lib.core-test
 
 Ran 1 tests containing 2 assertions.
-0 failures, 0 errors.
-{:test 1, :pass 2, :fail 0, :error 0, :type :summary}
+Testing complete: 0 failures, 0 errors.
+
+Ran 1 tests containing 2 assertions.
+Testing complete: 0 failures, 0 errors.
 ```
 
 ### Run the CLJ nREPL
@@ -125,9 +127,10 @@ Ran 1 tests containing 2 assertions.
 ```clj
 lein repl
 Compiling ClojureScript.
-nREPL server started on port 53604 on host 127.0.0.1
-REPL-y 0.2.1
-Clojure 1.5.1
+nREPL server started on port 49893 on host 127.0.0.1 - nrepl://127.0.0.1:49893
+REPL-y 0.3.5, nREPL 0.2.6
+Clojure 1.6.0
+Java HotSpot(TM) 64-Bit Server VM 1.7.0_45-b18
     Docs: (doc function-name-here)
           (find-doc "part-of-name-here")
   Source: (source function-name-here)
@@ -142,9 +145,9 @@ user=>
 
 ```clj
 user=> (run)
-2013-11-18 21:57:57.219:INFO:oejs.Server:jetty-7.6.8.v20121106
-2013-11-18 21:57:57.249:INFO:oejs.AbstractConnector:Started SelectChannelConnector@0.0.0.0:3000
-#<Server org.eclipse.jetty.server.Server@31153b19>
+2014-11-07 17:28:19.917:INFO:oejs.Server:jetty-7.6.13.v20130916
+2014-11-07 17:28:20.150:INFO:oejs.AbstractConnector:Started SelectChannelConnector@0.0.0.0:3000
+#<Server org.eclipse.jetty.server.Server@8bcddb0>
 user=>
 ```
 
@@ -164,7 +167,7 @@ cljs.user=>
 
 After having run the HTTP server and the bREPL, Just open
 [localhost:3000][12] in a browser, wait a moment and go back to the bREPL to
-interact with the browser from the REPL.
+interact with the browser frow the REPL.
 
 ```clj
 cljs.user=> (js/alert "Hello, ClojureScript!")
@@ -184,21 +187,24 @@ cljs.user=> (cemerick.cljs.test/run-all-tests)
 Testing wonderful-lib.core-test
 
 Ran 1 tests containing 2 assertions.
-0 failures, 0 errors.
-{:test 1, :pass 2, :fail 0, :error 0, :type :summary}
-cljs.user=> :cljs/quit
-:cljs/quit
-user=>
+Testing complete: 0 failures, 0 errors.
+{:test 1, :pass 2, :fail 0, :error 0}
+Ran 1 tests containing 2 assertions.
+Testing complete: 0 failures, 0 errors.
+
+cljs.user=>
 ```
 
 ### Stop and restart the HTTP server
 
 ```clj
+cljs.user=> :cljs/quit
+:cljs/quit
 user=> (.stop http/server)
 nil
 user=> (.start http/server)
-2013-10-31 22:21:09.543:INFO:oejs.Server:jetty-7.6.8.v20121106
-2013-10-31 22:21:09.558:INFO:oejs.AbstractConnector:Started SelectChannelConnector@0.0.0.0:3000
+2014-11-07 17:33:16.199:INFO:oejs.Server:jetty-7.6.13.v20130916
+2014-11-07 17:33:16.200:INFO:oejs.AbstractConnector:Started SelectChannelConnector@0.0.0.0:3000
 nil
 user=>
 ```
@@ -372,4 +378,6 @@ under the Eclipse Public License, the same as Clojure.
 [16]: https://github.com/cemerick/austin
 [17]: https://github.com/technomancy/leiningen/blob/master/doc/PROFILES.md
 
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/magomimmo/cljs-start/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
